@@ -1,4 +1,5 @@
-﻿using com.ambientbytes.kestreldi.server.Services;
+﻿using com.ambientbytes.kestreldi.server.Configuration;
+using com.ambientbytes.kestreldi.server.Services;
 
 namespace com.ambientbytes.kestreldi.server
 {
@@ -20,6 +21,7 @@ namespace com.ambientbytes.kestreldi.server
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<ServiceOneConfiguration>(_configuration);
             services.AddControllers();
 
             services.AddScoped<IServiceOne, ServiceOne>();

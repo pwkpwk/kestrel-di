@@ -2,12 +2,14 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <StartupObject>com.ambientbytes.kestreldi.client.Program</StartupObject>
     <BaseOutputPath>..\build\client\bin\</BaseOutputPath>
     <BaseIntermediateOutputPath>..\build\client\obj\</BaseIntermediateOutputPath>
+    <RootNamespace>com.ambientbytes.kestreldi.client</RootNamespace>
+    <LangVersion>12</LangVersion>
   </PropertyGroup>
 
 </Project>

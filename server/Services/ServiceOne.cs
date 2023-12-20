@@ -1,14 +1,16 @@
+using com.ambientbytes.kestreldi.server.Configuration;
+
 namespace com.ambientbytes.kestreldi.server.Services;
 
 public class ServiceOne : IServiceOne
 {
     private bool _disposed;
 
-    async Task<string> IServiceOne.RetrieveValue(ILogger logger, CancellationToken cancellation)
+    async Task<string> IServiceOne.RetrieveValue(ILogger logger, ServiceOneConfiguration configuration, CancellationToken cancellation)
     {
         try
         {
-            await Task.Delay(5000, cancellation);
+            await Task.Delay(TimeSpan.FromMilliseconds(configuration.ResponseDelay), cancellation);
         }
         catch (Exception ex)
         {
@@ -16,7 +18,7 @@ public class ServiceOne : IServiceOne
             throw;
         }
         logger.LogInformation("ServiceOne|retrieved the value");
-        return "Value";
+        return $"{configuration.Don}-{configuration.Wolfgang}; delayed {configuration.ResponseDelay}ms";
     }
 
     protected virtual void Dispose(bool disposing)
